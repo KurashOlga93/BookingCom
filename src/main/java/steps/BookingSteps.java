@@ -9,7 +9,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
@@ -45,15 +44,9 @@ public class BookingSteps {
         Configuration.browserSize = "1024x768";
     }
 
-    @AfterMethod
-    public void endTest() {
-        getWebDriver().quit();
-    }
-
     @Given("User is looking for hotels in {string} city")
     public void userIsLookingForHotelsInCity(String city) {
         this.city = city;
-        
     }
 
     @When("User does search")
@@ -91,4 +84,8 @@ public class BookingSteps {
         System.out.println("Name: " + name);
     }
 
+    @AfterMethod
+    public void endTest() {
+        getWebDriver().quit();
+    }
 }
